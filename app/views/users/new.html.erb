@@ -1,0 +1,17 @@
+<h3>User Regist Form_for Tag</h3>
+<%= form_for(@user, url: users_path(@user)) do |f| %>
+<p>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</p>
+<%= f.submit "Register" %>
+<% end  %>
+
+<h3>User Registration Form_tag hidden</h3>
+<%#= form_tag("/users") do %>
+<p>
+  <%#= label_tag "Email:" %>
+  <%#= text_field_tag "email" %>
+</p>
+  <%#= submit_tag "Register" %>
+<%#= end %>
