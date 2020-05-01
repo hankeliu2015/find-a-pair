@@ -6,8 +6,10 @@ class UsersController < ApplicationController
 
   def create
     # byebug
-    raise "hello".inspect
-    # @user = User.new(email: params[:user][:email])
+    # raise "hello".inspect
+    @user = User.create(email: params[:email])
+    @user.save
+    redirect_to "/login"
   end
 
 end #end of class
