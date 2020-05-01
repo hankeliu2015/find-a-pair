@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
       @session[:user_id] = @user.id
       #the action works, but need to redirect to a valid page
     else
-      redirect_to "login"
+      # flash[:notice] = "Warning: No user found"
+      redirect_to "/login", notice: "Warning: No user found"
     end
   end
 end
