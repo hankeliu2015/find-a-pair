@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    # render plain: "hello"
     @user = User.new
   end
 
