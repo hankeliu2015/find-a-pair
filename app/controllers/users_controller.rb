@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   def new
     # render plain: "hello"
     @user = User.new
+    if session[:current_user_id]
+      redirect_to '/', notice: "User already login"
+    end
   end
 
   def create
