@@ -14,4 +14,10 @@ class SessionsController < ApplicationController
       redirect_to "/login", notice: "Warning: No user found"
     end
   end
+
+  def destroy
+    reset_session
+    redirect_to '/'
+  end
+
 end
