@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   def home
   end
 
-  private 
+  private
   def current_user
     if session[:current_user_id]
       @current_user = User.find(session[:current_user_id])
@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def login(user)
-    session[:current_user_id] = @user.id
+    session[:current_user_id] = user.id
   end
 end
