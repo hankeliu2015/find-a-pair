@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
   def logged_in?
     current_user ? true : false
   end
+
+  def authenticaton_required
+    if !logged_in?
+      redirect_to "/login"
+    end
+  end
 end
