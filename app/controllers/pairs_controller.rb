@@ -8,6 +8,10 @@ class PairsController < ApplicationController
     @pairs = Pair.all
   end
 
+  def show
+    @pair = Pair.find_by(id: params[:id])
+  end
+
   def create
     @pair = Pair.create(topic: params[:Topic], requestor_user_id: current_user.id)
     # @pair.requestor_user_id = current_user.id
