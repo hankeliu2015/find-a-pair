@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to '/'
     else
       # flash[:notice] = "Warning: No user found"
-      redirect_to "/login", notice: "Warning: No user found"
+      redirect_to "/login", alert: "Warning: No user found"
     end
   end
 
