@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user
       # raise "Hello".inspect
-      session[:current_user_id] = @user.id
+      # session[:current_user_id] = @user.id
+      login(@user)
       redirect_to '/'
     else
       # flash[:notice] = "Warning: No user found"
