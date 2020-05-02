@@ -5,7 +5,7 @@ class PairsController < ApplicationController
   end
 
   def index
-    raise Pair.all.inspect
+    @pairs = Pair.all
   end
 
   def create
