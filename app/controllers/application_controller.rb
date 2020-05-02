@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def authenticaton_required
     if !logged_in?
-      redirect_to "/login"
+      redirect_to "/login", alert: "To pair up, Please Login!"
     end
   end
 end
