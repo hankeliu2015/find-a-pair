@@ -2,7 +2,7 @@
 <h4>Topic: <%= @pair.topic %></h4>
 <h5>Requested by: <%= @pair.requestor_user.email %></h5>
 
-<% if @pair.respondor_user %>
+<% if @pair.accepted? %>
   <h5>Accepted by: <%= @pair.respondor_user.email %></h5>
 <% else %>
   <%= form_for(@pair) do |t| %>

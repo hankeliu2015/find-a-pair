@@ -5,4 +5,9 @@ class Pair < ApplicationRecord
   def accepted_by(user)
     self.update(respondor_user: user)
   end
-end
+
+  def accepted?
+    true if respondor_user
+  end
+
+end #end of class
