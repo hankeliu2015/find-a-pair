@@ -14,12 +14,14 @@ class PairsController < ApplicationController
 
   def update
     @pair = Pair.find_by(id: params[:id])
-    if @pair.update(respondor_user: current_user)
+    # if @pair.update(respondor_user: current_user)
+    if @pair.accepted_by(current_user)
       redirect_to @pair
     else
       render :new
     end
   end
+
   def create
     @pair = Pair.create(topic: params[:Topic], requestor_user_id: current_user.id)
     # @pair.requestor_user_id = current_user.id
