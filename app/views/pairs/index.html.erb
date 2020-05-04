@@ -1,4 +1,4 @@
-<h3>All Pairs Index Page</h3>
+<h3>All Pairs List/Index</h3>
 
 <ol>
   <% @pairs.each do |p| %>
@@ -13,3 +13,7 @@
       <li><%= link_to "#{p.topic} from #{p.requestor_user.email}", pair_path(p) %></li>
   <% end %>
 </ol>
+
+<h3>
+  <%= link_to "Go To Create New Pair Page", new_pair_path %>
+</h3>

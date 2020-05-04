@@ -10,10 +10,20 @@
   </head>
 
   <body>
-    <% if session[:current_user_id] %>
-      <p>You are logged in as : <%= @current_user.email %> | <a href="/logout">Logout</a></p>
+    <nav>
+      <section>
+        <%= link_to_unless_current "Open Pairs List", pairs_path %>
+      </section>
 
-    <% end %>
+      <section class="utility">
+        <% if session[:current_user_id] %>
+          <p>You are logged in as : <%= @current_user.email %> | <a href="/logout">Logout</a></p>
+        <% else %>
+          <%= link_to_unless_current "Login", login_path %> |
+          <%= link_to_unless_current "Register", register_path %>
+        <% end %>
+      </section>
+    </nav>
     <%= yield %>
   </body>
 </html>
