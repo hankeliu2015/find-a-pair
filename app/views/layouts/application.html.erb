@@ -12,7 +12,9 @@
   <body>
     <nav>
       <section>
+        <%= link_to_unless_current "Home", root_path %>
         <%= link_to_unless_current "Open Pairs List", pairs_path %>
+        <%= link_to_unless_current "New Pair", new_pair_path %>
       </section>
 
       <section class="utility">
