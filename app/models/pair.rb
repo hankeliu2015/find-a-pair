@@ -10,4 +10,14 @@ class Pair < ApplicationRecord
     true if respondor_user
   end
 
+  def self.by_status(status)
+    case status
+    when :open
+      where(respondor_user: nil)
+    when :active
+      where.not(respondor_user: nil)
+    end
+
+  end
+
 end #end of class

@@ -5,3 +5,11 @@
   <li><%= link_to "#{p.topic} from #{p.requestor_user.email}", pair_path(p) %></li>
   <% end %>
 </ol>
+
+<h3>Open Pairs</h3>
+
+<ol>
+  <% @open_pairs.each do |p| %>
+      <li><%= link_to "#{p.topic} from #{p.requestor_user.email}", pair_path(p) %></li>
+  <% end %>
+</ol>

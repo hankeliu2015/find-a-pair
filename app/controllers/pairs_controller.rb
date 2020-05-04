@@ -6,6 +6,7 @@ class PairsController < ApplicationController
 
   def index
     @pairs = Pair.all
+    @open_pairs = Pair.by_status(:open)
   end
 
   def show
