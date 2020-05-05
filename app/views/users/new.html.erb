@@ -7,9 +7,15 @@
 <p>
   <%= f.label :password %>
   <%= f.password_field :password %>
+
 </p>
 <%= f.submit "Register" %>
 <% end  %>
+
+<% if @user.errors[:password] %>
+
+  <p><%= @user.errors[:password][0] %></p>
+<% end %>
 
 <h3>User Registration Form_tag hidden</h3>
 <%#= form_tag("/users") do %>

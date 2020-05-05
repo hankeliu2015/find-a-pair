@@ -15,8 +15,9 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to "/login"
     else
+      # byebug
       render :new
     end
-  end 
+  end
 
 end #end of class
