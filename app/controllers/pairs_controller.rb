@@ -2,6 +2,7 @@ class PairsController < ApplicationController
   before_action :authenticaton_required
   # before_action :logged_in?
   def new
+    @pair = Pair.new
   end
 
   def index
@@ -11,6 +12,7 @@ class PairsController < ApplicationController
 
   def show
     @pair = Pair.find_by(id: params[:id])
+    # raise @pair.inspect
   end
 
   def update
@@ -19,17 +21,17 @@ class PairsController < ApplicationController
     if @pair.accepted_by(current_user)
       redirect_to @pair
     else
-      render :new
+      render :show
     end
   end
 
   def create
-    @pair = Pair.create(topic: params[:Topic], requestor_user_id: current_user.id)
+    @pair = Pair.create(title: params[:title], description: params[:description], requestor_user_id: current_user.id)
     # @pair.requestor_user_id = current_user.id
-    if @pair
+    if @pair.save
       redirect_to "/pairs"
     else
-      raise @pair.errors.inspect
+      render :new
     end
   end
 

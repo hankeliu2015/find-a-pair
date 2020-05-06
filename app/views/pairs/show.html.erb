@@ -1,11 +1,17 @@
 <h3>Pair Show Page</h3>
-<h4>Topic: <%= @pair.topic %></h4>
+<h4>Pair Topic/Title: <%= @pair.topic %></h4>
+<h4>Pair Description: <%= @pair.description %></h4>
 <h5>Requested by: <%= @pair.requestor_user.email %></h5>
 
 <% if @pair.accepted? %>
   <h5>Accepted by: <%= @pair.respondor_user.email %></h5>
 <% else %>
   <%= form_for(@pair) do |t| %>
+
+    <% if @pair.errors[:respondor_user].first %>
+
+      <p><%= @pair.errors.full_messages_for(:respondor_user).first %></p>
+    <% end %>
     <%= t.submit "Accept this Pair" %>
   <% end %>
 <% end %>

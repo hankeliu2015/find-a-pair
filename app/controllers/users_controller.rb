@@ -11,9 +11,13 @@ class UsersController < ApplicationController
     # byebug
     # raise "hello".inspect
     # @user = User.create(email: params[:email]) #form_tag params format is different with form_for
-    @user = User.create(email: params[:user][:email])
-    @user.save
-    redirect_to "/login"
+    @user = User.create(email: params[:user][:email], password: params[:user][:password])
+    if @user.save
+      redirect_to "/login"
+    else
+      # byebug
+      render :new
+    end
   end
 
 end #end of class

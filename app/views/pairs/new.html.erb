@@ -1,7 +1,25 @@
 
-<h3>Find a pair new form</h3>
+<h3>Find/Request a pair | Pair new form</h3>
 <%= form_tag("/pairs") do %>
-  <%= label_tag :"Topic" %>
-  <%= text_field_tag :"Topic" %>
+  <p>
+    <%= label_tag "title", "Title" %>
+
+    <% if @pair.errors[:title] %>
+      <p><%= "#{@pair.errors.full_messages_for(:title).first}" %></p>
+    <% end %>
+
+    <%= text_field_tag "title" %>
+  </p>
+
+  <p>
+    <%= label_tag "description", "Description" %>
+
+    <% if @pair.errors[:description] %>
+      <p><%= "#{@pair.errors.full_messages_for(:description).first}" %></p>
+    <% end %>
+    
+    <%= text_area_tag "description" %>
+  </p>
+
   <%= submit_tag %>
 <% end %>
