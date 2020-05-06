@@ -3,12 +3,22 @@
 <%= form_tag("/pairs") do %>
   <p>
     <%= label_tag "title", "Title" %>
+
+    <% if @pair.errors[:title] %>
+      <p><%= "#{@pair.errors.full_messages_for(:title).first}" %></p>
+    <% end %>
+
     <%= text_field_tag "title" %>
   </p>
 
   <p>
-    <%= label_tag "description","Description" %>
-    <%= text_area_tag "Description" %>
+    <%= label_tag "description", "Description" %>
+
+    <% if @pair.errors[:description] %>
+      <p><%= "#{@pair.errors.full_messages_for(:description).first}" %></p>
+    <% end %>
+    
+    <%= text_area_tag "description" %>
   </p>
 
   <%= submit_tag %>

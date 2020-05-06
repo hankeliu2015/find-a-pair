@@ -2,6 +2,7 @@ class PairsController < ApplicationController
   before_action :authenticaton_required
   # before_action :logged_in?
   def new
+    @pair = Pair.new
   end
 
   def index
@@ -26,10 +27,10 @@ class PairsController < ApplicationController
   def create
     @pair = Pair.create(title: params[:title], description: params[:description], requestor_user_id: current_user.id)
     # @pair.requestor_user_id = current_user.id
-    if @pair
+    if @pair.save
       redirect_to "/pairs"
     else
-      raise @pair.errors.inspect
+      render :new
     end
   end
 

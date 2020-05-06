@@ -1,6 +1,8 @@
 class Pair < ApplicationRecord
   belongs_to :requestor_user, class_name: "User"
   belongs_to :respondor_user, class_name: "User", optional: true
+  validates :title, length: {in: 10 ..100}
+  validates :description, presence: true
 
   def accepted_by(user)
     self.update(respondor_user: user)
