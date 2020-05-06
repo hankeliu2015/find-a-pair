@@ -2,7 +2,7 @@
 
 <ol>
   <% @pairs.each do |p| %>
-  <li><%= link_to "#{p.title} from #{p.requestor_user.email}", pair_path(p) %></li>
+  <li><%= link_to "#{p.topic} from #{p.requestor_user.email}", pair_path(p) %></li>
   <% end %>
 </ol>
 

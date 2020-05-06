@@ -17,7 +17,11 @@ class Pair < ApplicationRecord
     when :active
       where.not(respondor_user: nil)
     end
+  end
 
+  def topic
+    ActiveSupport::Deprecation.warn("Please user 'title' over 'topic'." )
+    self.title
   end
 
 end #end of class
