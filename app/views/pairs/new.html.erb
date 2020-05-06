@@ -1,7 +1,15 @@
 
 <h3>Find/Request a pair | Pair new form</h3>
 <%= form_tag("/pairs") do %>
-  <%= label_tag :"Topic" %>
-  <%= text_field_tag :"Topic" %>
+  <p>
+    <%= label_tag "title", "Title" %>
+    <%= text_field_tag "title" %>
+  </p>
+
+  <p>
+    <%= label_tag "description","Description" %>
+    <%= text_area_tag "Description" %>
+  </p>
+
   <%= submit_tag %>
 <% end %>

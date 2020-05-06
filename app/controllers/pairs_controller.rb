@@ -24,7 +24,7 @@ class PairsController < ApplicationController
   end
 
   def create
-    @pair = Pair.create(topic: params[:Topic], requestor_user_id: current_user.id)
+    @pair = Pair.create(title: params[:title], description: params[:description], requestor_user_id: current_user.id)
     # @pair.requestor_user_id = current_user.id
     if @pair
       redirect_to "/pairs"
