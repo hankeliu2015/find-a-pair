@@ -12,6 +12,7 @@ class PairsController < ApplicationController
 
   def show
     @pair = Pair.find_by(id: params[:id])
+    # raise @pair.inspect
   end
 
   def update
@@ -20,7 +21,7 @@ class PairsController < ApplicationController
     if @pair.accepted_by(current_user)
       redirect_to @pair
     else
-      render :new
+      render :show
     end
   end
 

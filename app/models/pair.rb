@@ -5,7 +5,12 @@ class Pair < ApplicationRecord
   validates :description, presence: true
 
   def accepted_by(user)
-    self.update(respondor_user: user)
+    if user == self.requestor_user
+      self.errors.add(:respondor_user, " can not pair with yourself")
+      return false
+    else
+      self.update(respondor_user: user)
+    end
   end
 
   def accepted?
