@@ -10,7 +10,7 @@
 
     <% if @pair.errors[:respondor_user].first %>
 
-      <p><%= @pair.errors.full_messages_for(:respondor_user).first %></p>
+      <p class="validation_errors"><%= @pair.errors.full_messages_for(:respondor_user).first %></p>
     <% end %>
     <%= t.submit "Accept this Pair" %>
   <% end %>
