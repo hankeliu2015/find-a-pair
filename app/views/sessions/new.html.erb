@@ -4,6 +4,10 @@
   <h3 style=color:red><%= flash[:alert] %></h3>
 <% end %>
 
+<% if flash[:notice] %>
+  <h3 style=color:red><%= flash[:notice] %></h3>
+<% end %>
+
 <%= form_tag("/sessions") do %>
 <p>
   <%= label_tag "email", "Email:" %>

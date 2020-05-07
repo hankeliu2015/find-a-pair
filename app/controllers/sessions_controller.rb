@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       redirect_to '/'
     else
       # flash[:notice] = "Warning: No user found"
-      redirect_to "/login", alert: "Warning: Please check user name or password"
+      # redirect_to "/login", alert: "Alert: Please check user name or password"
+      redirect_to "/login", notice: "Notice: check user name or password"
     end
   end
 

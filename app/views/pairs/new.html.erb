@@ -4,8 +4,8 @@
   <p>
     <%= label_tag "title", "Title" %>
 
-    <% if @pair.errors[:title] %>
-      <p><%= "#{@pair.errors.full_messages_for(:title).first}" %></p>
+    <% if @pair.errors[:title].first %>
+      <p class="validation_errors">Warning:<%= "#{@pair.errors.full_messages_for(:title).first}" %></p>
     <% end %>
 
     <%= text_field_tag "title" %>
@@ -14,10 +14,10 @@
   <p>
     <%= label_tag "description", "Description" %>
 
-    <% if @pair.errors[:description] %>
-      <p><%= "#{@pair.errors.full_messages_for(:description).first}" %></p>
+    <% if @pair.errors[:description].first %>
+      <p class="validation_errors"><%= "#{@pair.errors.full_messages_for(:description).first}" %></p>
     <% end %>
-    
+
     <%= text_area_tag "description" %>
   </p>
 
