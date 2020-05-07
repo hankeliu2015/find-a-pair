@@ -1,5 +1,5 @@
 class Pair < ApplicationRecord
-  belongs_to :requestor_user, class_name: "User"
+  belongs_to :requestor_user, class_name: "User"  #dafault foreignn key is user_id, this one is requestor_user_id
   belongs_to :respondor_user, class_name: "User", optional: true
   validates :title, length: {in: 10 ..100}
   validates :description, presence: true
