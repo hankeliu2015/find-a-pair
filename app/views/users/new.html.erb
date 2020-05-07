@@ -1,20 +1,20 @@
 <h3>User Register Form_for Tag</h3>
 <%= form_for(@user, url: users_path(@user)) do |f| %>
-<p>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-</p>
-<p>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <% if @user.errors[:password][0] %>
+      <p class="validation_errors">Validations Error:<%= @user.errors.full_messages_for(:password).first %></p>
+    <% end %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-</p>
-<%= f.submit "Register" %>
+  </p>
+  <%= f.submit "Register" %>
 <% end  %>
 
-<% if @user.errors[:password] %>
-  <p><%= @user.errors[:password][0] %></p>
-<% end %>
 
 <% if false %>
   <h3>User Registration Form_tag hidden</h3>
