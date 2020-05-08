@@ -18,6 +18,7 @@ class PairsController < ApplicationController
   def update
     @pair = Pair.find_by(id: params[:id])
     # if @pair.update(respondor_user: current_user)
+    # byebug
     if @pair.accepted_by(current_user)
       redirect_to @pair
     else
