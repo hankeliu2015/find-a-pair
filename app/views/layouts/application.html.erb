@@ -20,14 +20,25 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <%= link_to_unless_current "Open Pairs List", pairs_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <%= link_to_unless_current "New Pair", new_pair_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to_unless_current "Login", login_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to_unless_current "Logout", logout_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to_unless_current "Register", register_path, class: "nav-link" %>
+          </li>
+
+
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
@@ -40,7 +51,7 @@
     </nav>
   </header>
 
-<hr>
+<% if false %>
     <nav>
       <section>
         <%= link_to_unless_current "Home", root_path %>
@@ -57,6 +68,7 @@
         <% end %>
       </section>
     </nav>
+<% end %>
     <%= yield %>
   </body>
 </html>
