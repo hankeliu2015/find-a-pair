@@ -9,6 +9,11 @@
         </div>
 
         <%= f.email_field :email, class: "form-control", placeholder: "Email Address" %>
+
+        <div class="input-group-append">
+          <span class="input-group-text"> <i class="fa fa-envelope">@email.com</i> </span>
+        </div>
+
       </div>
 
       <% if @user.errors[:password][0] %>
