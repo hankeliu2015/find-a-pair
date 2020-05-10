@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
   def new
-    # @session = session
+    @session = User.new
   end
 
   def create
-    @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
+    # byebug
+    @user = User.find_by(email: params[:user][:email])
+    if @user && @user.authenticate(params[:user][:password])
       # raise "Hello".inspect
       # session[:current_user_id] = @user.id  #replace it with private method login(user)
       login(@user)
