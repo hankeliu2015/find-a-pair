@@ -1,34 +1,39 @@
-<h3>User Register Form_for Tag</h3>
-<%= form_for(@user, url: users_path(@user)) do |f| %>
-  <p>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </p>
-  <p>
-    <% if @user.errors[:password][0] %>
-      <p class="validation_errors">Validations Error:<%= @user.errors.full_messages_for(:password).first %></p>
+<div class="card bg-light mt-5">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center">New User Registration</h4>
+    <%= form_for(@user, url: users_path(@user)) do |f| %>
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+        </div>
+
+        <%= f.email_field :email, class: "form-control", placeholder: "Email Address" %>
+
+        <div class="input-group-append">
+          <span class="input-group-text"> <i class="fa fa-envelope">@email.com</i> </span>
+        </div>
+
+      </div>
+
+      <% if @user.errors[:password][0] %>
+        <p class="validation_errors">Validations Error:<%= @user.errors.full_messages_for(:password).first %></p>
+      <% end %>
+
+      <div class="form-group input-group">
+        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+
+        <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Create Account", class: "btn btn-primary btn-block" %>
+      </div>
+
+      <p class="text-center">Have an account? <a href="/login">Log In</a> </p>
+
     <% end %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
 
-  </p>
-  <%= f.submit "Register" %>
-<% end  %>
+  </article>
 
-
-<% if false %>
-  <h3>User Registration Form_tag hidden</h3>
-  <%= form_tag("/users") do %>
-  <p>
-    <%= label_tag "Email:" %>
-    <%= text_field_tag "email" %>
-  </p>
-    <%= submit_tag "Register" %>
-  <% end %>
-<% end %>
-
-<% if false %>
-  <form class="" action="/users" method="post">
-    <input type="submit" name="" value="Register">
-  </form>
-<% end %>
+</div>
