@@ -14,3 +14,15 @@
     <%= t.submit "Accept this Pair" %>
   <% end %>
 <% end %>
+
+<hr>
+<div class="card col-md mx-2">
+  <div class="card-body">
+    <h4 class="card-title">Pair Title:<%= @pair.title %></h4>
+    <h6 class="card-subtitle mb-2 text-muted">Requestor: <%= @pair.requestor_user.email %></h6>
+    <p class="card-text"><%= @pair.description %></p>
+    <a href="#" class="card-link">Learn More</a>
+    <a href="/pairs/#{@pairs.id}" action="patch" class="card-link">Pair</a>
+    <%# <%= link_to "Pair With", controller: "pairs", action: "patch", id: @pair %> %>
+  </div>
+</div>

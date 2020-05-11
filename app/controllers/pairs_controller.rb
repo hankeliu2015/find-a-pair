@@ -16,6 +16,7 @@ class PairsController < ApplicationController
   end
 
   def update
+    # byebug
     @pair = Pair.find_by(id: params[:id])
     # if @pair.update(respondor_user: current_user)
     # byebug
