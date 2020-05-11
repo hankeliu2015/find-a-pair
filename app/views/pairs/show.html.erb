@@ -1,22 +1,8 @@
-<h3>Pair Show Page</h3>
-<h4>Pair Topic/Title: <%= @pair.topic %></h4>
-<h4>Pair Description: <%= @pair.description %></h4>
-<h5>Requested by: <%= @pair.requestor_user.email %></h5>
-
-<% if @pair.accepted? %>
-  <h5>Accepted by: <%= @pair.respondor_user.email %></h5>
-<% else %>
-  <%= form_for(@pair) do |t| %>
-
-    <% if @pair.errors[:respondor_user].first %>
-      <p class="validation_errors"><%= @pair.errors.full_messages_for(:respondor_user).first %></p>
-    <% end %>
-    <%= t.submit "Accept this Pair" %>
-  <% end %>
+<% if @pair.errors[:respondor_user].first %>
+<p class="validation_errors"><%= @pair.errors.full_messages_for(:respondor_user).first %></p>
 <% end %>
 
-<hr>
-<div class="card col-md mx-2">
+<div class="card col-md mt-5">
   <div class="card-body">
     <h4 class="card-title">Title:<%= @pair.title %></h4>
     <h6 class="card-subtitle mb-2 text-muted">Requestor: <%= @pair.requestor_user.email %></h6>
@@ -26,3 +12,24 @@
     <%= link_to "Pair With", pair_path(@pair), method: "patch", class: "card-link" %>
   </div>
 </div>
+
+<hr>
+
+<% if false %>
+  <h3>Pair Show Page</h3>
+  <h4>Pair Topic/Title: <%= @pair.topic %></h4>
+  <h4>Pair Description: <%= @pair.description %></h4>
+  <h5>Requested by: <%= @pair.requestor_user.email %></h5>
+
+  <% if @pair.accepted? %>
+  <h5>Accepted by: <%= @pair.respondor_user.email %></h5>
+  <% else %>
+  <%= form_for(@pair) do |t| %>
+
+  <% if @pair.errors[:respondor_user].first %>
+  <p class="validation_errors"><%= @pair.errors.full_messages_for(:respondor_user).first %></p>
+  <% end %>
+  <%= t.submit "Accept this Pair" %>
+  <% end %>
+  <% end %>
+<% end %>
