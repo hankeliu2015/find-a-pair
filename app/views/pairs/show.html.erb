@@ -22,7 +22,6 @@
     <h6 class="card-subtitle mb-2 text-muted">Requestor: <%= @pair.requestor_user.email %></h6>
     <p class="card-text"><%= @pair.description %></p>
     <a href="#" class="card-link">Learn More</a>
-    <a href="/pairs/#{@pairs.id}" action="patch" class="card-link">Pair</a>
-    <%# <%= link_to "Pair With", controller: "pairs", action: "patch", id: @pair %> %>
+    <%= link_to "Pair With", pair_path(@pair), method: "patch", class: "card-link" %>
   </div>
 </div>
