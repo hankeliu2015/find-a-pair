@@ -1,3 +1,7 @@
+@import '_variables';
+@import 'bootstrap/scss/bootstrap';
+@import '_bootswatch';
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -14,11 +18,9 @@
  *= require_self
  */
 
- // @import '_variables';
-@import 'bootstrap/scss/bootstrap';
-// @import '_bootswatch';
 
-@import 'home';
+
+// @import 'home';
 
  .validation_errors {
    color: red;
