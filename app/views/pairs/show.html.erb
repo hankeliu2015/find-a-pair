@@ -18,9 +18,10 @@
 <hr>
 <div class="card col-md mx-2">
   <div class="card-body">
-    <h4 class="card-title">Pair Title:<%= @pair.title %></h4>
+    <h4 class="card-title">Title:<%= @pair.title %></h4>
     <h6 class="card-subtitle mb-2 text-muted">Requestor: <%= @pair.requestor_user.email %></h6>
-    <p class="card-text"><%= @pair.description %></p>
+    <p class="card-text">Description: <%= @pair.description %></p>
+    <p class="card-text">Accepted By: <%= @pair.respondor_user ? @pair.respondor_user.email : "None"  %></p>
     <a href="#" class="card-link">Learn More</a>
     <%= link_to "Pair With", pair_path(@pair), method: "patch", class: "card-link" %>
   </div>
