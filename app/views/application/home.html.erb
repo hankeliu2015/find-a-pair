@@ -11,8 +11,14 @@
       <!-- <p class="lead">
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
       </p> -->
-      <button type="button" class="btn btn-primary">Request a Pair</button>
-      <button type="button" class="btn btn-secondary">Browser Pairs Requests</button>
+
+      <form class="btn btn-primary" action="/pairs/new" method="get">
+        <button type="submit" class="btn btn-primary">Request a Pair</button>
+      </form>
+
+      <form class="btn btn-secondary" action="/pairs" method="get">
+        <button type="submit" class="btn btn-secondary">Browser Pairs Requests</button>
+      </form>
 
     </div>
 
